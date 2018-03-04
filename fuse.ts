@@ -1,4 +1,4 @@
-import { resolve } from 'path'
+import { resolve, join } from 'path'
 import {
   FuseBox,
   Sparky,
@@ -7,6 +7,7 @@ import {
   WebIndexPlugin,
   QuantumPlugin,
 } from 'fuse-box'
+import * as express from 'express'
 
 import transformCSS from 'ts-transform-css-modules-next'
 import transformInferno from 'ts-transform-inferno'
@@ -51,7 +52,15 @@ Sparky.task('config', _ => {
 Sparky.task('clean', _ => Sparky.src('dist/').clean('dist/'));
 Sparky.task('env', _ => (isProduction = true));
 Sparky.task('dev', ['clean', 'config'], async () => {
-  fuse.dev();
+  fuse.dev({ root: false }, server => {
+    const dist = resolve("./dist");
+    const app = server.httpServer.app;
+    app.use(express.static(dist))
+    app.get("*", function(req, res) {
+        res.sendFile(join(dist, "index.html"));
+    });
+  })
+
   app.hmr().watch();
 
   await Sparky.watch('src/**/**.*', undefined, (event, file) => {

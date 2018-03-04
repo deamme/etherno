@@ -1,17 +1,23 @@
-import { render } from "inferno";
-import { BrowserRouter, Switch, Route } from "inferno-router";
-import Home from "./pages/Home";
-import NotFound from "./pages/NotFound";
+import { render } from 'inferno'
+import { Subscribe } from 'laco-inferno'
+import { Switch, Route, RouterStore } from 'laco-inferno-router'
+
+import Home from './pages/Home'
+import Test from './pages/Test'
+import NotFound from './pages/NotFound'
 
 export default () => {
   const App = () => (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/" component={Home} />
-        <Route path="*" component={NotFound} />
-      </Switch>
-    </BrowserRouter>
-  );
+    <Subscribe to={[RouterStore]}>
+      {state => (
+        <Switch location={state.pathname}>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/test" component={Test} />
+          <Route component={NotFound} />
+        </Switch>
+      )}
+    </Subscribe>
+  )
 
-  render(<App />, document.getElementById("root"));
-};
+  render(<App />, document.getElementById('root'))
+}
