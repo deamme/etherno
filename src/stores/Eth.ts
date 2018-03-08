@@ -3,7 +3,8 @@ import { Store } from 'laco'
 const EthStore = new Store(
   {
     hasProvider: false,
-    block: null,
+    latestBlock: null,
+    blocks: []
   },
   'Eth',
 )

@@ -28,7 +28,7 @@ Sparky.task('config', _ => {
       before: [transformCSS({
         preprocessor: 'sass',
         autoprefix: true,
-        paths: [resolve(__dirname, 'styles')],
+        paths: [resolve(__dirname, 'src/styles')],
         output: resolve(__dirname, 'dist')
       }), transformInferno()],
     },
