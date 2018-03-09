@@ -1,12 +1,12 @@
 import { Store } from 'laco'
 
-const EthStore = new Store(
+export default new Store(
   {
     hasProvider: false,
     latestBlock: null,
-    blocks: []
+    blocks: [],
+    tx: []
   },
   'Eth',
 )
 
-export default EthStore

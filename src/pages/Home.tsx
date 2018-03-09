@@ -4,14 +4,38 @@ import EthStore from '../stores/Eth'
 
 import './Home.scss'
 
+const Waiting = () => (
+  <div>Waiting for incoming block..</div>
+)
+
 const EtherBlocks = () => (
   <Subscribe to={[EthStore]}>
-    {({ hasProvider, blocks }) => (
-      <div>
-        <p>{hasProvider ? 'Provider available!' : 'No provider available please install Metamask'}</p>
-        {blocks.map((block) => (
-          <div>
-            <p>{block && 'Block hash: ' + block.hash}</p>
+    {({ blocks }) => (
+      <div styleName="blocksContainer">
+        { blocks.length ? null : (<Waiting />) }
+        {blocks.map((block, idx) => (
+          <div key={block.hash} styleName={"block " + (idx === 0 ? 'fade-in blue-pulse' : '')}>
+            <div styleName="infoContainer">
+              <p>{'DATA ' + block.data}</p>
+            </div>
+            <div styleName="infoContainer">
+              <p styleName="hashText">HASH</p>
+              <div styleName="hashTextContainer">
+                <p>{block && block.hash}</p>
+              </div>
+            </div>
+            <div styleName="infoContainer">
+              <p>{'TIMESTAMP ' + block.timestamp}</p>
+            </div>
+            <div styleName="infoContainer">
+              <p>{'DIFFICULTY ' + block.difficulty}</p>
+            </div>
+            <div styleName="infoContainer">
+              <p>{'TX ' + block.tx}</p>
+            </div>
+            <div styleName="infoContainer">
+              <p>{'BLOCK #' + block.number}</p>
+            </div>
           </div>
         ))}
       </div>
