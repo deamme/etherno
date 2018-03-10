@@ -27,10 +27,13 @@ if (typeof web3 !== 'undefined') {
               hash: block.hash,
               number: block.number.toString(10),
               tx: block.transactions.length,
+              uncles: block.uncles.length,
               timestamp: block.timestamp.toString(10),
               difficulty: block.difficulty.toString(10),
               data: fromHex(block.extraData.substring(2))
             }
+
+            console.log(block)
 
             EthStore.set({ 
               latestBlock: normalizedBlock,

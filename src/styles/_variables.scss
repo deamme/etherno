@@ -8,3 +8,23 @@ $sans-serif: -apple-system, BlinkMacSystemFont,
                sans-serif;
 
 $serif: georgia, times, serif;
+$system-sans-serif: sans-serif;
+$system-serif: serif;
+
+/* Monospaced Typefaces (for code) */
+/* From http://cssfontstack.com */
+$code: Consolas, monaco, monospace;
+$courier: 'Courier Next', courier, monospace;
+
+/* Sans-Serif Typefaces */
+$helvetica: 'helvetica neue', helvetica, sans-serif;
+$avenir: 'avenir next', avenir, sans-serif;
+
+/* Serif Typefaces */
+$athelas: athelas, georgia, serif;
+$georgia: georgia, serif;
+$times: times, serif;
+$bodoni: "Bodoni MT", serif;
+$calisto: "Calisto MT", serif;
+$garamond: garamond, serif;
+$baskerville: baskerville, serif;

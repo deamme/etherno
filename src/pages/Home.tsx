@@ -15,26 +15,32 @@ const EtherBlocks = () => (
         { blocks.length ? null : (<Waiting />) }
         {blocks.map((block, idx) => (
           <div key={block.hash} styleName={"block " + (idx === 0 ? 'fade-in blue-pulse' : '')}>
-            <div styleName="infoContainer">
-              <p>{'DATA ' + block.data}</p>
+            <div styleName="infoContainer blockNumber">
+              <p>{'BLOCK #' + block.number}</p>
             </div>
             <div styleName="infoContainer">
-              <p styleName="hashText">HASH</p>
-              <div styleName="hashTextContainer">
+              <p styleName="data">Data</p>
+              <div styleName="dataContainer">
+                <p>{block && block.data}</p>
+              </div>
+            </div>
+            <div styleName="infoContainer">
+              <p styleName="data">Hash</p>
+              <div styleName="dataContainer">
                 <p>{block && block.hash}</p>
               </div>
             </div>
             <div styleName="infoContainer">
-              <p>{'TIMESTAMP ' + block.timestamp}</p>
+              <p styleName="data">Transactions</p>
+              <div styleName="dataContainer">
+                <p>{block && block.tx}</p>
+              </div>
             </div>
             <div styleName="infoContainer">
-              <p>{'DIFFICULTY ' + block.difficulty}</p>
-            </div>
-            <div styleName="infoContainer">
-              <p>{'TX ' + block.tx}</p>
-            </div>
-            <div styleName="infoContainer">
-              <p>{'BLOCK #' + block.number}</p>
+              <p styleName="data">Uncles</p>
+              <div styleName="dataContainer">
+                <p>{block && block.uncles}</p>
+              </div>
             </div>
           </div>
         ))}
@@ -45,7 +51,7 @@ const EtherBlocks = () => (
 
 const Heading = () => (
   <div styleName="headerContainer">
-    <h1>LATEST ETHER BLOCKS</h1>
+    <h1 styleName="header">Latest Ether Blocks</h1>
   </div>
 )
 
