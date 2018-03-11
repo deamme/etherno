@@ -5,14 +5,21 @@ import EthStore from '../stores/Eth'
 import './Home.scss'
 
 const Waiting = () => (
-  <div>Waiting for incoming block..</div>
+  <div styleName="block">Waiting for incoming block..</div>
+)
+
+const Warning = () => (
+  <div styleName="block">
+    <img styleName="fox" src="https://metamask.io/img/metamask.png" alt="https://metamask.io/img/metamask.png" />
+    <p>Please use a client that is exposing web3. You can use <a href="https://metamask.io/">MetaMask</a>.</p>
+  </div>
 )
 
 const EtherBlocks = () => (
   <Subscribe to={[EthStore]}>
-    {({ blocks }) => (
+    {({ blocks, hasProvider }) => (
       <div styleName="blocksContainer">
-        { blocks.length ? null : (<Waiting />) }
+        { hasProvider ? (blocks.length ? null : (<Waiting />)) : (<Warning />) }
         {blocks.map((block, idx) => (
           <div key={block.hash} styleName={"block " + (idx === 0 ? 'fade-in blue-pulse' : '')}>
             <div styleName="infoContainer blockNumber">
