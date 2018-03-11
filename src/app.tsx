@@ -11,7 +11,7 @@ export default () => {
     <Subscribe to={[RouterStore]}>
       {state => (
         <Switch location={state.pathname}>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/etherno" component={Home} />
           <Route exact path="/test" component={Test} />
           <Route component={NotFound} />
         </Switch>

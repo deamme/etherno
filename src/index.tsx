@@ -32,9 +32,6 @@ if (typeof web3 !== 'undefined') {
               difficulty: block.difficulty.toString(10),
               data: fromHex(block.extraData.substring(2))
             }
-
-            console.log(block)
-
             EthStore.set({ 
               latestBlock: normalizedBlock,
               blocks: [normalizedBlock, ...state.blocks]
