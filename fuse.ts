@@ -35,7 +35,7 @@ Sparky.task('config', _ => {
     plugins: [
       EnvPlugin({ NODE_ENV: isProduction ? 'production' : 'development' }),
       WebIndexPlugin({
-        title: 'Inferno Typescript FuseBox Example',
+        title: 'Etherno',
         template: 'src/index.html',
       }),
       isProduction &&
@@ -70,6 +70,5 @@ Sparky.task('dev', ['clean', 'config'], async () => {
 });
 
 Sparky.task('prod', ['clean', 'env', 'config'], _ => {
-  fuse.dev({ reload: true }); // remove after demo
   return fuse.run();
 });
