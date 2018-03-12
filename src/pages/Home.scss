@@ -6,12 +6,28 @@
   font-size: .75em;
 }
 
+@include sm-up() {
+  .headerContainer {
+    font-size: 1em;
+  }
+}
+
+@include md-up() {
+  .headerContainer {
+    font-size: 1.5em;
+  }
+}
+
 .header {
   text-transform: uppercase;
 }
 
 .blocksContainer {
   font-family: $sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+  max-width: 40rem;
 }
 
 .block {
@@ -20,10 +36,7 @@
   background-color: white;
   padding: 1rem;
   margin-bottom: 1rem;
-  margin-left: auto;
-  margin-right: auto;
   color: gray;
-  max-width: 16rem;
 }
 
 .infoContainer {
@@ -55,8 +68,12 @@
   color: #333;
 }
 
+.warning {
+  text-align: center;
+}
+
 .fox {
   max-width: 8rem;
-  margin-left: 4rem;
   margin-bottom: 1rem;
+  
 }

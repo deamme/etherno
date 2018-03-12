@@ -10,8 +10,10 @@ const Waiting = () => (
 
 const Warning = () => (
   <div styleName="block">
-    <img styleName="fox" src="https://metamask.io/img/metamask.png" alt="https://metamask.io/img/metamask.png" />
-    <p>Please use a client that is exposing web3. You can use <a href="https://metamask.io/">MetaMask</a>.</p>
+    <div styleName="warning">
+      <img styleName="fox" src="https://metamask.io/img/metamask.png" alt="https://metamask.io/img/metamask.png" />
+      <p>Please use a client that is exposing web3. You can use <a href="https://metamask.io/">MetaMask</a>.</p>
+    </div>
   </div>
 )
 

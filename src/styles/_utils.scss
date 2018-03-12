@@ -1,0 +1,16 @@
+/* Media-queries */
+@mixin sm-up() {
+  @media screen and (min-width: 30em) {
+    @content;
+  }
+}
+@mixin md-up() {
+  @media screen and (min-width: 48em) {
+    @content;
+  }
+}
+@mixin lg-up() {
+  @media screen and (min-width: 60em) {
+    @content;
+  }
+}
