@@ -43,7 +43,7 @@
   display: flex;
   max-width: 100%;
   font-size: .85rem;
-  margin-top: .25rem;
+  margin-top: .5rem;
 }
 
 .data {
@@ -75,5 +75,10 @@
 .fox {
   max-width: 8rem;
   margin-bottom: 1rem;
-  
+}
+
+.timestamp {
+  font-size: .6em;
+  margin-left: .25rem;
+  padding-top: .5rem;
 }

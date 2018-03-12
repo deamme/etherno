@@ -9,6 +9,7 @@
     "start:prod": "ts-node fuse prod"
   },
   "dependencies": {
+    "date-fns": "^1.29.0",
     "ethjs": "^0.3.3",
     "inferno": "^4.0.2",
     "laco": "^0.1.0",

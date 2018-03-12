@@ -1,6 +1,7 @@
 import { Subscribe } from 'laco-inferno'
 import { Link } from 'laco-inferno-router'
 import EthStore from '../stores/Eth'
+import { format } from 'date-fns'
 
 import './Home.scss'
 
@@ -26,29 +27,30 @@ const EtherBlocks = () => (
           <div key={block.hash} styleName={"block " + (idx === 0 ? 'fade-in blue-pulse' : '')}>
             <div styleName="infoContainer blockNumber">
               <p>{'BLOCK #' + block.number}</p>
+              <p styleName="timestamp">{format(block.timestamp*1000, 'on ddd, DD MMM YYYY HH:mm:ss')}</p>
             </div>
             <div styleName="infoContainer">
               <p styleName="data">Data</p>
               <div styleName="dataContainer">
-                <p>{block && block.data}</p>
+                <p>{block.data}</p>
               </div>
             </div>
             <div styleName="infoContainer">
               <p styleName="data">Hash</p>
               <div styleName="dataContainer">
-                <p>{block && block.hash}</p>
+                <p>{block.hash}</p>
               </div>
             </div>
             <div styleName="infoContainer">
               <p styleName="data">Transactions</p>
               <div styleName="dataContainer">
-                <p>{block && block.tx}</p>
+                <p>{block.tx}</p>
               </div>
             </div>
             <div styleName="infoContainer">
               <p styleName="data">Uncles</p>
               <div styleName="dataContainer">
-                <p>{block && block.uncles}</p>
+                <p>{block.uncles}</p>
               </div>
             </div>
           </div>
