@@ -5,7 +5,8 @@ export default new Store(
     hasProvider: false,
     latestBlock: null,
     blocks: [],
-    tx: []
+    tx: [],
+    usd: 0
   },
   'Eth',
 )

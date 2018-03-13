@@ -58,7 +58,7 @@
   background: #f6ffed;
   border-radius: 4px;
   border: 1px solid #b7eb8f;
-  overflow: auto;
+  overflow-x: auto;
   font-size: .85rem;
   padding: .125rem .25rem;
 }
@@ -66,6 +66,13 @@
 .blockNumber {
   font-size: 1.25em;
   color: #333;
+  display: block;
+}
+
+@include sm-up() {
+  .blockNumber {
+    display: flex;
+  }
 }
 
 .warning {
@@ -79,6 +86,11 @@
 
 .timestamp {
   font-size: .6em;
-  margin-left: .25rem;
   padding-top: .5rem;
+}
+
+@include sm-up() {
+  .timestamp {
+    margin-left: .25rem;
+  }
 }

@@ -2,6 +2,7 @@ import { Subscribe } from 'laco-inferno'
 import { Link } from 'laco-inferno-router'
 import EthStore from '../stores/Eth'
 import { format } from 'date-fns'
+import * as formatNumber from 'format-number'
 
 import './Home.scss'
 
@@ -39,6 +40,24 @@ const EtherBlocks = () => (
               <p styleName="data">Hash</p>
               <div styleName="dataContainer">
                 <p>{block.hash}</p>
+              </div>
+            </div>
+            <div styleName="infoContainer">
+              <p styleName="data">Miner</p>
+              <div styleName="dataContainer">
+                <p>{block.miner}</p>
+              </div>
+            </div>
+            <div styleName="infoContainer">
+              <p styleName="data">Miner balance</p>
+              <div styleName="dataContainer">
+                <p>{block.minerBalance.eth + ' ETH / ' + formatNumber()(block.minerBalance.usd) + ' USD'}</p>
+              </div>
+            </div>
+            <div styleName="infoContainer">
+              <p styleName="data">Reward</p>
+              <div styleName="dataContainer">
+                <p>{`~ ${block.reward} ETH`}</p>
               </div>
             </div>
             <div styleName="infoContainer">
