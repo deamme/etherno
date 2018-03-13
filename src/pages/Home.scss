@@ -47,6 +47,12 @@
   white-space: nowrap;
 }
 
+@include sm-up() {
+  .infoContainer {
+    white-space: initial;
+  }
+}
+
 .data {
   margin-right: .5rem;
   display: inline-block;
