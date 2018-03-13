@@ -44,6 +44,7 @@
   max-width: 100%;
   font-size: .85rem;
   margin-top: .5rem;
+  white-space: nowrap;
 }
 
 .data {
@@ -58,7 +59,7 @@
   background: #f6ffed;
   border-radius: 4px;
   border: 1px solid #b7eb8f;
-  overflow-x: auto;
+  overflow-x: scroll;
   font-size: .85rem;
   padding: .125rem .25rem;
 }
