@@ -13,9 +13,9 @@
     "ethjs": "^0.3.3",
     "format-number": "^3.0.0",
     "inferno": "^4.0.2",
-    "laco": "^0.1.0",
-    "laco-inferno": "^0.1.0",
-    "laco-inferno-router": "^0.1.1"
+    "laco": "^0.2.2",
+    "laco-inferno": "^0.2.2",
+    "laco-inferno-router": "^0.2.2"
   },
   "devDependencies": {
     "@types/node": "^9.4.6",

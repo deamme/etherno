@@ -1,12 +1,37 @@
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
 }
 
 body {
   background-color: #f9f9fb;
 }
 
-p {
-  margin: 0;
+h1, h2, h3 {
+  font-family: 'Lekton', serif;
+}
+
+.dn {
+  display: none;
+}
+
+.color-primary {
+  color: rgba(0, 0, 32, 1);
+}
+
+.color-primary-1 {
+  color: rgba(0, 0, 32, 0.9);
+}
+
+.color-primary-2 {
+  color: rgba(0, 0, 32, 0.8);
+}
+
+.color-primary-3 {
+  color: rgba(0, 0, 32, 0.6);
+}
+
+.color-secondary {
+  color: #4630EB;
 }

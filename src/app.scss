@@ -1,0 +1,22 @@
+@import "index";
+
+.overlay {
+  position: fixed;
+  z-index: 400;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  opacity: 0.1;
+  background: rgb(0, 0, 32);
+}
+
+.container {
+  padding-top: 3.5rem;
+}
+
+@include lg-up() {
+  .container {
+    padding-top: 0;
+  }
+}

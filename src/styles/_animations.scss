@@ -27,3 +27,39 @@
   animation-fill-mode: forwards;
 	animation-duration: 700ms;
 }
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fade-in-down {
+  animation-name: fadeInDown;
+  animation-fill-mode: both;
+	animation-duration: 700ms;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fade-in-up {
+  animation-name: fadeInUp;
+  animation-fill-mode: both;
+	animation-duration: 700ms;
+}
