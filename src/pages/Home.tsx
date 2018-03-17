@@ -10,7 +10,6 @@ export default (
   <div styleName="container">
     <header styleName="header fade-in-down">
       <h2 styleName="color-primary-1">Ethereum Services</h2>
-      <p styleName="color-primary-1"></p>
     </header>
   </div>
 )

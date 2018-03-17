@@ -12,14 +12,14 @@ export default () => (
       <div styleName="navContainer">
         <div styleName="navbar">
           <div>
-            <Link to="/etherno" class="" styleName="brand color-primary" title="Etherno">Etherno</Link>
+            <Link to="/etherno" styleName="brand color-primary" title="Etherno">Etherno</Link>
           </div>
           <div styleName="burger" onclick={toggleMobileNav}>
             { showMobileNav ? <CrossIcon /> : <BurgerIcon />}
           </div>
         </div>
         <nav styleName={showMobileNav ? '' : 'dn'} onclick={toggleMobileNav}>
-          <Link to="/etherno/latest-ethereum-blocks" class="" styleName="nav-item color-primary-2">Latest Ethereum Blocks</Link>
+          <Link to="/etherno/latest-ethereum-blocks" styleName="nav-item color-primary-2">Latest Ethereum Blocks</Link>
         </nav>
       </div>
     )}

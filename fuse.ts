@@ -17,7 +17,6 @@ let isProduction = false;
 
 Sparky.task('config', _ => {
   fuse = new FuseBox({
-    globals: { default: "Eth" },
     homeDir: 'src',
     hash: isProduction,
     output: 'dist/$name.js',
@@ -64,11 +63,20 @@ Sparky.task('dev', ['clean', 'config'], async () => {
   app.hmr().watch();
 
   await Sparky.watch('src/**/**.*', undefined, (event, file) => {
-    fuse.sendPageReload();
+    setTimeout(() => fuse.sendPageReload(), 100)
   }).exec()
   await fuse.run()
 });
 
-Sparky.task('prod', ['clean', 'env', 'config'], _ => {
+Sparky.task('prod', ['clean', 'env', 'config'], () => {
+  fuse.dev({ root: false }, server => {
+    const dist = resolve("./dist");
+    const app = server.httpServer.app;
+    app.use(express.static(dist))
+    app.get("*", function(req, res) {
+        res.sendFile(join(dist, "index.html"));
+    });
+  })
+
   return fuse.run();
 });

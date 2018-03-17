@@ -18,7 +18,7 @@ export default () => {
     <Subscribe to={[RouterStore, UIStore]}>
       {({ pathname }, { showMobileNav }) => (
         <div>
-          { showMobileNav ? <div styleName="overlay" onclick={toggleMobileNav}></div> : null}
+          <div styleName={showMobileNav ? 'overlay' : ''} onclick={toggleMobileNav}></div>
           <Navbar />
           <div styleName="container">
             <Switch location={pathname}>
