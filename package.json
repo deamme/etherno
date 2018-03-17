@@ -17,7 +17,7 @@
     "laco-inferno": "^0.2.6-0",
     "laco-inferno-router": "^0.2.6-0",
     "laco-react": "^0.2.2",
-    "laco-react-router": "^0.2.5",
+    "laco-react-router": "^0.2.5"
   },
   "devDependencies": {
     "@types/node": "^9.4.6",
