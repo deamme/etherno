@@ -28,7 +28,8 @@ Sparky.task('config', _ => {
         preprocessor: 'sass',
         autoprefix: true,
         paths: [resolve(__dirname, 'src/styles')],
-        output: resolve(__dirname, 'dist')
+        output: resolve(__dirname, 'dist'),
+        globalPath: resolve(__dirname, 'src/styles/globals.scss')
       }), transformInferno()],
     },
     plugins: [
