@@ -6,11 +6,14 @@ import {
   CSSPlugin,
   WebIndexPlugin,
   QuantumPlugin,
+  JSONPlugin,
 } from 'fuse-box'
 import * as express from 'express'
 
 import transformCSS from 'ts-transform-css-modules-next'
 import transformInferno from 'ts-transform-inferno'
+
+import * as App from './dist/server'
 
 let fuse, app;
 let isProduction = false;
@@ -22,34 +25,31 @@ Sparky.task('config', _ => {
     output: 'dist/$name.js',
     cache: false,
     sourceMaps: !isProduction,
-    target: "browser",
+    target: "browser@es3",
     transformers: {
       before: [transformCSS({
         preprocessor: 'sass',
         autoprefix: true,
         paths: [resolve(__dirname, 'src/styles')],
-        output: resolve(__dirname, 'dist'),
+        output: resolve(__dirname, 'dist/assets'),
         globalPath: resolve(__dirname, 'src/styles/globals.scss')
       }), transformInferno()],
     },
     plugins: [
+      JSONPlugin(),
       EnvPlugin({ NODE_ENV: isProduction ? 'production' : 'development' }),
-      WebIndexPlugin({
-        title: 'Etherno',
-        template: 'src/index.html',
-      }),
       isProduction &&
       QuantumPlugin({
-        bakeApiIntoBundle: 'app',
+        bakeApiIntoBundle: 'assets/app',
         treeshake: true,
         uglify: true,
       }),
     ],
   });
-  app = fuse.bundle('app').instructions('>index.tsx');
+  app = fuse.bundle('assets/app').splitConfig({ dest: "/assets" }).instructions('>client.tsx')
 });
 
-Sparky.task('clean', _ => Sparky.src('dist/').clean('dist/'));
+Sparky.task('clean', _ => Sparky.src('dist/').clean('dist/assets'));
 Sparky.task('env', _ => (isProduction = true));
 Sparky.task('dev', ['clean', 'config'], async () => {
   fuse.dev({ root: false }, server => {
@@ -57,7 +57,11 @@ Sparky.task('dev', ['clean', 'config'], async () => {
     const app = server.httpServer.app;
     app.use(express.static(dist))
     app.get("*", function(req, res) {
-        res.sendFile(join(dist, "index.html"));
+        App.handler({ path: req.url }, {}, (err, result) => {
+          res.status(result.statusCode)
+          res.set(result.headers)
+          res.send(result.body)
+        })
     });
   })
 
@@ -70,14 +74,5 @@ Sparky.task('dev', ['clean', 'config'], async () => {
 });
 
 Sparky.task('prod', ['clean', 'env', 'config'], () => {
-  fuse.dev({ root: false }, server => {
-    const dist = resolve("./dist");
-    const app = server.httpServer.app;
-    app.use(express.static(dist))
-    app.get("*", function(req, res) {
-        res.sendFile(join(dist, "index.html"));
-    });
-  })
-
   return fuse.run();
 });

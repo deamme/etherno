@@ -1,7 +1,8 @@
+import * as Eth from 'ethjs'
+
 import EthStore from './stores/Eth'
 import startApp from './app'
 
-const Eth = window['Eth']
 const web3 = window['web3']
 let eth
 

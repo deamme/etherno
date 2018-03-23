@@ -1,5 +1,5 @@
 import { Subscribe } from 'laco-inferno'
-import { Link } from 'laco-inferno-router'
+import { Link } from 'inferno-router'
 import { UIStore, toggleMobileNav } from '../stores/UI'
 
 import { CrossIcon, BurgerIcon } from './Icons'
@@ -12,14 +12,14 @@ export default () => (
       <div styleName="navContainer">
         <div styleName="navbar">
           <div>
-            <Link to="/etherno" styleName="brand" className="color-primary" title="Etherno">Etherno</Link>
+            <Link to="/" styleName="brand" className="color-primary" title="Etherno">Etherno</Link>
           </div>
           <div styleName="burger" onClick={toggleMobileNav}>
             { showMobileNav ? <CrossIcon /> : <BurgerIcon />}
           </div>
         </div>
         <nav className={showMobileNav ? '' : 'dn'} onClick={toggleMobileNav}>
-          <Link to="/etherno/latest-ethereum-blocks" styleName="nav-item" className="color-primary-2">Latest Ethereum Blocks</Link>
+          <Link to="/projects/latest-ethereum-blocks" styleName="nav-item" className="color-primary-2">Latest Ethereum Blocks</Link>
         </nav>
       </div>
     )}

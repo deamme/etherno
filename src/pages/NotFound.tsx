@@ -1,6 +1,6 @@
 import './NotFound.scss'
 
-export default (
+export default () => (
   <div styleName="container" className="color-primary-1 fade-in-down">
     <h1>Error 404 - Page not found!</h1>
   </div>

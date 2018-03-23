@@ -1,5 +1,4 @@
 import { Subscribe } from 'laco-inferno'
-import { Link } from 'laco-inferno-router'
 import EthStore from '../stores/Eth'
 import { format } from 'date-fns'
 import formatNumber from 'format-number'
@@ -87,7 +86,7 @@ const Heading = () => (
   </div>
 )
 
-export default (
+export default () => (
   <div>
     <Heading />
     <EtherBlocks />
